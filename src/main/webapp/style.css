@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 42px;
+    background: #f7f7f7;
+    text-align: center !important;
+}
+
+span {
+    font-weight: 600;
+    font-size: 10vw;
+}
+
+span:hover {
+    margin: 0 15px;
+    line-height: .7;
+    text-shadow: 0 0 2px rgba(0, 0, 0, .45);
+    color: #ab1128;
+    animation: span 3s ease-in 1 alternate;
+    font-weight: 600;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@keyframes span {
+    0%,30%{ margin: 0 15px; }
+    70%,100%{ margin: 0 5px; }
+}
+
+.description {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 350;
+    font-size: 20px;
+    margin-bottom: 5vh;
+    color: #ab1128;
+    text-align: center;
+}
+
+.base-button {
+    font-family: 'Montserrat', sans-serif;
+    color: #ab1128;
+    background-color: white;
+    border-radius: 6px;
+    transition-duration: 0.4s;
+    box-sizing: border-box;
+}
+
+.output-image {
+    max-width: 30%;
+    max-height: 30%;
+}
+
+#download-image-button {
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    padding-right: 3vw;
+    padding-left: 3vw;
+    border: 2px solid #ab1128;
+    text-decoration: none;
+    font-size: 0.2em;
+}
+
+#elements-area {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-right: 3vw;
+    padding-left: 3vw;
+}
+
+#load-image-button:active {
+    background-color: #ab1128;
+    color: #f7f7f7;
+}
+
+#image-input-label {
+    height: 2vh;
+    color: black;
+    border: 2px solid black;
+}
+
+#image-input-label:hover {
+    background-color: black;
+    color: white;
+}
+
+#image-input {
+    visibility: hidden;
+}
