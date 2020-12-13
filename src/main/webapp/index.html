@@ -22,14 +22,17 @@
         <span>G</span>
         <span>!</span>
         <p class="description">TURN YOUR IMAGE INTO TELEGRAM STICKER</p>
-        <img id="stock-image"/>
-        <input type="file" name="image" id="image-input" accept=".png">
-      </div>
-      <div class="col-6">
         <div id="elements-area">
           <label id="image-input-label" for="image-input" class="base-button">IMAGE GOES HERE</label>
         </div>
-        <img id="image-output"/>
+        <input type="file" name="image" id="image-input" accept=".png">
+      </div>
+      <div class="col-6">
+        <div id="output-area">
+          <img id="image-output"/>
+          <br>
+          <a id="download-image-button"></a>
+        </div>
       </div>
     </div>
   </body>

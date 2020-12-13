@@ -1,11 +1,13 @@
 let IMAGE_INPUT;
 let POST_IMAGE_HEADER;
 let IMAGE_OUTPUT;
+let DOWNLOAD_BUTTON;
 
 window.onload = function () {
     IMAGE_INPUT = document.getElementById("image-input");
     POST_IMAGE_HEADER = new Headers({"Content-Type": "application/json"});
     IMAGE_OUTPUT = document.getElementById("image-output");
+    DOWNLOAD_BUTTON = document.getElementById("download-image-button");
 
     IMAGE_INPUT.onchange = function () {
         let image = IMAGE_INPUT.files[0];
@@ -14,7 +16,9 @@ window.onload = function () {
 }
 
 function createDownloadButton(url) {
-
+    DOWNLOAD_BUTTON.download = "sticker.png";
+    DOWNLOAD_BUTTON.href = url;
+    DOWNLOAD_BUTTON.innerText = "click";
 }
 
 function displaySticker(url) {
