@@ -13,25 +13,24 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 42px;
     background: #f7f7f7;
-    text-align: center !important;
 }
 
 span {
     font-weight: 600;
-    font-size: 10vw;
+    font-size: 5vw;
 }
 
 span:hover {
-    margin: 0 15px;
+    margin: 0 10px;
     line-height: .7;
     text-shadow: 0 0 2px rgba(0, 0, 0, .45);
     color: #ab1128;
     animation: span 3s ease-in 1 alternate;
-    font-weight: 600;
+    font-weight: 300;
 }
 
 .main {
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: flex-start;
 }
@@ -41,10 +40,18 @@ span:hover {
     70%,100%{ margin: 0 5px; }
 }
 
+.row {
+    width: 100vw !important;
+}
+
+#area {
+    text-align: left;
+}
+
 .description {
     font-family: 'Roboto', sans-serif;
     font-weight: 350;
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 5vh;
     color: #ab1128;
     text-align: center;
@@ -69,9 +76,9 @@ span:hover {
     padding-bottom: 1.5vh;
     padding-right: 3vw;
     padding-left: 3vw;
-    border: 2px solid #ab1128;
+    border: 2px solid white;
     text-decoration: none;
-    font-size: 0.2em;
+    font-size: 0.1em;
 }
 
 #elements-area {
@@ -87,14 +94,14 @@ span:hover {
 }
 
 #image-input-label {
-    height: 2vh;
     color: black;
-    border: 2px solid black;
+    font-weight: 100 !important;
+    border: 2px solid black !important;
 }
 
 #image-input-label:hover {
     background-color: black;
-    color: white;
+    color: #f7f7f7 !important;
 }
 
 #image-input {

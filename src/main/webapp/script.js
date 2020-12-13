@@ -1,6 +1,6 @@
-let IMAGE_INPUT = document.getElementById("image-input");
-let POST_IMAGE_HEADER = new Headers({"Content-Type": "image/png"});
-let IMAGE_OUTPUT = document.getElementById("image-output");
+let IMAGE_INPUT;
+let POST_IMAGE_HEADER;
+let IMAGE_OUTPUT;
 
 window.onload = function () {
     IMAGE_INPUT = document.getElementById("image-input");
@@ -13,14 +13,21 @@ window.onload = function () {
     }
 }
 
-function displayImage(blob) {
-    const urlСreator = window.URL || window.webkitURL;
-    var url = urlСreator.createObjectURL(blob);
-    IMAGE_OUTPUT.src = url;
-    console.log(request.response)
-    console.log(request.response != null)
+function createDownloadButton(url) {
+
 }
 
+function displaySticker(url) {
+    IMAGE_OUTPUT.src = url;
+}
+
+function processSticker(blob) {
+    const urlСreator = window.URL || window.webkitURL;
+    var url = urlСreator.createObjectURL(blob);
+
+    displaySticker(url);
+    createDownloadButton(url);
+}
 
 function postImage(image) {
     var data = new FormData();
@@ -34,7 +41,7 @@ function postImage(image) {
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             var blob = new Blob([new Uint8Array(request.response)], {type: "image/png"});
-            displayImage(blob);
+            processSticker(blob);
         }
     }
 
