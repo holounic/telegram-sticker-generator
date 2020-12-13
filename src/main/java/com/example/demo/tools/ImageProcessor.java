@@ -1,11 +1,9 @@
 package com.example.demo.tools;
 
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Objects;
@@ -15,7 +13,7 @@ public class ImageProcessor {
     private static final int DIM = 512;
     private static final String IMAGE_TYPE = "PNG";
 
-    public static BufferedImage multipartToBuffered(MultipartFile image) {
+    private static BufferedImage multipartToBuffered(MultipartFile image) {
         try {
             return ImageIO.read(image.getInputStream());
         } catch (IOException e) {
@@ -24,7 +22,7 @@ public class ImageProcessor {
         }
     }
 
-    public static BufferedImage crop(BufferedImage src) {
+    private static BufferedImage crop(BufferedImage src) {
         int originalHeight = src.getHeight();
         int originalWidth = src.getWidth();
         int canvasWidth, canvasHeight;
@@ -44,7 +42,7 @@ public class ImageProcessor {
         return canvas;
     }
 
-    public static byte[] toByteArray(BufferedImage image) {
+    private static byte[] toByteArray(BufferedImage image) {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         try {
             ImageIO.write(image, IMAGE_TYPE, os);
