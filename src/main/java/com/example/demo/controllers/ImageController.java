@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controllers;
 
 import com.example.demo.tools.ImageProcessor;
 import org.springframework.http.MediaType;
