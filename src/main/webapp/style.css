@@ -30,7 +30,7 @@ span:hover {
 }
 
 .main {
-    /*display: flex;*/
+    display: flex;
     justify-content: center;
     align-items: flex-start;
 }
@@ -45,7 +45,7 @@ span:hover {
 }
 
 #area {
-    text-align: left;
+    text-align: center;
 }
 
 .description {
@@ -64,11 +64,6 @@ span:hover {
     border-radius: 6px;
     transition-duration: 0.4s;
     box-sizing: border-box;
-}
-
-.output-image {
-    max-width: 30%;
-    max-height: 30%;
 }
 
 #download-image-button {
@@ -105,4 +100,13 @@ span:hover {
 
 #image-input {
     visibility: hidden;
+}
+
+#image-output {
+    max-height: min(20vh, 20vw);
+    max-width: min(20vh, 20vw);
+}
+
+#output-area {
+    text-align: center;
 }
