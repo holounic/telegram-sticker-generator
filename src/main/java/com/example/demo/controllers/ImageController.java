@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.tools.ImageProcessor;
+import com.example.demo.tools.StickerImage;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +10,10 @@ import org.springframework.web.multipart.MultipartFile;
 public class ImageController {
 
     @RequestMapping(value="/process", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> postImageToProcess(@RequestParam("file") MultipartFile image,
+    public ResponseEntity<byte[]> postImageToProcess(@RequestParam("file") MultipartFile file,
                                                      @RequestParam("owner") String owner,
                                                      @RequestParam("pack") String pack) {
-        byte[] cropped = ImageProcessor.process(image);
+        byte[] cropped = new StickerImage(file).squeeze();
         return ResponseEntity
                 .ok()
                 .contentType(MediaType.IMAGE_PNG)
