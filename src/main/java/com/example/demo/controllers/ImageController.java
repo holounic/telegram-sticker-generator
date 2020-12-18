@@ -13,7 +13,7 @@ public class ImageController {
     public ResponseEntity<byte[]> postImageToProcess(@RequestParam("file") MultipartFile file,
                                                      @RequestParam("owner") String owner,
                                                      @RequestParam("pack") String pack) {
-        byte[] cropped = new StickerImage(file).squeeze();
+        byte[] cropped = new StickerImage(file).preserveDimension();
         return ResponseEntity
                 .ok()
                 .contentType(MediaType.IMAGE_PNG)

@@ -42,6 +42,20 @@ public class StickerImage extends AbstractImage<byte[]> {
         return squeeze(canvasWidth, canvasHeight);
     }
 
+    public byte[] preserveDimension() {
+        int originalHeight = image.getHeight();
+        int originalWidth = image.getWidth();
+        int canvasWidth, canvasHeight;
+        if (originalHeight > originalWidth) {
+            canvasHeight = DIM;
+            canvasWidth = DIM * originalWidth / originalHeight;
+        } else {
+            canvasWidth = DIM;
+            canvasHeight = DIM * originalHeight / originalWidth;
+        }
+        return squeeze(canvasWidth, canvasHeight);
+    }
+
     public byte[] square() {
         return squeeze(DIM, DIM);
     }
