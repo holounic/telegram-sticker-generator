@@ -1,7 +1,7 @@
 let IMAGE_INPUT;
 let OWNER_INPUT;
 let PACK_INPUT;
-let POST_IMAGE_HEADER;
+let METHOD_INPUT;
 let IMAGE_OUTPUT;
 let DOWNLOAD_BUTTON;
 
@@ -9,7 +9,7 @@ window.onload = function () {
     IMAGE_INPUT = document.getElementById("image-input");
     OWNER_INPUT = document.getElementById("owner-input");
     PACK_INPUT = document.getElementById("pack-input");
-    POST_IMAGE_HEADER = new Headers({"Content-Type": "application/json"});
+    METHOD_INPUT = document.getElementById("method-input")
     IMAGE_OUTPUT = document.getElementById("image-output");
     DOWNLOAD_BUTTON = document.getElementById("download-image-button");
 
@@ -17,7 +17,8 @@ window.onload = function () {
         let image = IMAGE_INPUT.files[0];
         let owner = OWNER_INPUT.value;
         let pack = PACK_INPUT.value;
-        postImage(image, owner, pack);
+        let method = METHOD_INPUT.value;
+        postImage(image, owner, pack, method);
     }
 }
 
@@ -41,11 +42,12 @@ function processSticker(blob) {
     createDownloadButton(url);
 }
 
-function postImage(image, owner, pack) {
+function postImage(image, owner, pack, method) {
     const data = new FormData();
     data.append("file", image);
     data.append("owner", owner);
     data.append("pack", pack);
+    data.append("method", method);
 
     const request = new XMLHttpRequest();
     request.open("POST", "/process", true);

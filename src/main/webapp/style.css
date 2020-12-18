@@ -138,3 +138,7 @@ span:hover {
 #output-area {
     text-align: center;
 }
+
+#method-input {
+    margin: 0 11px;
+}
