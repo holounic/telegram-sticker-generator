@@ -23,9 +23,20 @@
         <span>!</span>
         <p class="description">TURN YOUR IMAGE INTO TELEGRAM STICKER</p>
         <div id="elements-area">
-          <label id="image-input-label" for="image-input" class="base-button">IMAGE GOES HERE</label>
+          <form class="form">
+            <label id="owner-input-label" class="txt-input">
+              Owner id:
+              <input type="text" id="owner-input" value="@me" class="txt-field">
+            </label>
+            <label id="pack-input-label" for="pack-input" class="txt-input">
+              Pack name:
+              <input type="text" id="pack-input" value="MyPack" class="txt-field">
+            </label>
+            <label id="image-input-label" for="image-input" class="base-button" >IMAGE GOES HERE</label>
+            <input type="file" name="image" id="image-input" value="image.png" accept=".png">
+          </form>
+
         </div>
-        <input type="file" name="image" id="image-input" accept=".png">
       </div>
       <div class="col-12">
         <div id="output-area">

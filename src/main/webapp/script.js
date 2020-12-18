@@ -18,7 +18,7 @@ window.onload = function () {
 function createDownloadButton(url) {
     DOWNLOAD_BUTTON.download = "sticker.png";
     DOWNLOAD_BUTTON.href = url;
-    DOWNLOAD_BUTTON.innerText = "click";
+    DOWNLOAD_BUTTON.innerText = "click to download";
 }
 
 function displaySticker(url) {

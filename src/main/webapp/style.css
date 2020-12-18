@@ -6,7 +6,7 @@
 
 body {
     width: 100%;
-    height: 100vh;
+    /*height: 100vh;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,10 +29,11 @@ span:hover {
     font-weight: 300;
 }
 
-.main {
+.form {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
 }
 
 @keyframes span {
@@ -64,6 +65,32 @@ span:hover {
     border-radius: 6px;
     transition-duration: 0.4s;
     box-sizing: border-box;
+    font-size: 25px;
+}
+
+.txt-input {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.txt-field {
+    font-family: 'Montserrat', sans-serif;
+    height: max(4vh, 25px);
+    font-size: 15px;
+    background-color: #f7f7f7;
+    margin-left: 10px;
+
+    border: thin solid gray;
+    border-radius: 3px;
+}
+
+.txt-field:focus {
+    /*border: 2px solid red;*/
+    border-color: #ab1128;
+    color: #ab1128;
 }
 
 #download-image-button {
@@ -89,8 +116,10 @@ span:hover {
 
 #image-input-label {
     color: black;
+    background-color: #f7f7f7;
     font-weight: 100 !important;
     border: 2px solid black !important;
+    padding: 0 11px;
 }
 
 #image-input-label:hover {
