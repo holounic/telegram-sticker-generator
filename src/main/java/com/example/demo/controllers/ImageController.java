@@ -24,7 +24,8 @@ public class ImageController {
                                                      @RequestParam("pack") String pack,
                                                      @RequestParam("method") ProcessingMethod method) {
         byte[] cropped = StickerUtils.process(file, method);
-        service.save(new Sticker(owner, pack, new byte[10]));
+        service.save(new Sticker(owner, pack, cropped));
+
         return ResponseEntity
                 .ok()
                 .contentType(MediaType.IMAGE_PNG)
