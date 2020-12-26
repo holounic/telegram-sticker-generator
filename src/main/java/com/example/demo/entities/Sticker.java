@@ -26,6 +26,8 @@ public class Sticker {
         this.image = sticker;
     }
 
+    public Sticker() {}
+
     public Long getId() {
         return id;
     }

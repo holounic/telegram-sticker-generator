@@ -1,11 +1,9 @@
 package com.example.demo.controllers;
 
 import com.example.demo.entities.Sticker;
-import com.example.demo.repositories.StickerRepository;
 import com.example.demo.services.StickerService;
-import com.example.demo.services.StickerServiceImp;
-import com.example.demo.tools.ProcessingMethod;
-import com.example.demo.tools.StickerUtils;
+import com.example.demo.tools.images.ProcessingMethod;
+import com.example.demo.tools.images.StickerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

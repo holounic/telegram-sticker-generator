@@ -1,7 +1,6 @@
-package com.example.demo.tools;
+package com.example.demo.tools.images;
 
 import org.springframework.web.multipart.MultipartFile;
-
 import java.awt.image.BufferedImage;
 
 public class StickerImage extends AbstractImage<byte[]> {

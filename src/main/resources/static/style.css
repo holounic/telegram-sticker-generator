@@ -5,6 +5,7 @@
 }
 
 body {
+    padding-top: 5vh;
     width: 100%;
     display: flex;
     justify-content: center;
