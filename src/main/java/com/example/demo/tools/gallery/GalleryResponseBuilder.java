@@ -5,8 +5,11 @@ import com.example.demo.entities.Sticker;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public class GalleryResponseBuilder {
+
+    private static final Random random = new Random(12345);
 
     public static byte[][] buildMultiResponse(List<Sticker> stickers) {
         Objects.requireNonNull(stickers);
@@ -21,6 +24,6 @@ public class GalleryResponseBuilder {
     public static byte[] buildMonoResponse(List<Sticker> stickers) {
         Objects.requireNonNull(stickers);
         if (stickers.isEmpty()) return null;
-        return stickers.get(0).getImage();
+        return stickers.get(random.nextInt(stickers.size())).getImage();
     }
 }

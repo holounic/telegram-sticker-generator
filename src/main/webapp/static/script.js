@@ -1,23 +1,35 @@
 let IMAGE_INPUT;
 let OWNER_INPUT;
 let PACK_INPUT;
-let METHOD_INPUT;
+let PROCESS_METHOD_INPUT;
+let SEARCH_METHOD_INPUT;
+let VALUE_INPUT;
 let IMAGE_OUTPUT;
 let DOWNLOAD_BUTTON;
+let SUBMIT_BUTTON;
 
 window.onload = function () {
     IMAGE_INPUT = document.getElementById("image-input");
     OWNER_INPUT = document.getElementById("owner-input");
     PACK_INPUT = document.getElementById("pack-input");
-    METHOD_INPUT = document.getElementById("method-input")
+    PROCESS_METHOD_INPUT = document.getElementById("process-method-input");
+    SEARCH_METHOD_INPUT = document.getElementById("search-method-input");
+    VALUE_INPUT = document.getElementById("value-input");
     IMAGE_OUTPUT = document.getElementById("image-output");
     DOWNLOAD_BUTTON = document.getElementById("download-image-button");
+    SUBMIT_BUTTON = document.getElementById("submit-search-data");
+
+    SUBMIT_BUTTON.onclick = function () {
+        let method = SEARCH_METHOD_INPUT.value;
+        let value = VALUE_INPUT.value;
+        sendStickerRequest(method, value);
+    }
 
     IMAGE_INPUT.onchange = function () {
         let image = IMAGE_INPUT.files[0];
         let owner = OWNER_INPUT.value;
         let pack = PACK_INPUT.value;
-        let method = METHOD_INPUT.value;
+        let method = PROCESS_METHOD_INPUT.value;
         postImage(image, owner, pack, method);
     }
 }
@@ -34,12 +46,13 @@ function displaySticker(url) {
     IMAGE_OUTPUT.src = url;
 }
 
-function processSticker(blob) {
+function processSticker(blob, createButton = false) {
     const urlCreator = window.URL || window.webkitURL;
-    var url = urlCreator.createObjectURL(blob);
-
+    const url = urlCreator.createObjectURL(blob);
     displaySticker(url);
-    createDownloadButton(url);
+    if (createButton) {
+        createDownloadButton(url);
+    }
 }
 
 function postImage(image, owner, pack, method) {
@@ -52,6 +65,22 @@ function postImage(image, owner, pack, method) {
     const request = new XMLHttpRequest();
     request.open("POST", "/process", true);
     request.send(data);
+    request.responseType = "arraybuffer";
+
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            var blob = new Blob([new Uint8Array(request.response)], {type: "image/png"});
+            processSticker(blob, true);
+        }
+    }
+
+}
+
+function sendStickerRequest(method, value) {
+    const path = "/gallery/method=" + method + "/value=" + value;
+    const request = new XMLHttpRequest();
+    request.open("GET", path, true);
+    request.send();
     request.responseType = "arraybuffer";
 
     request.onreadystatechange = function () {
