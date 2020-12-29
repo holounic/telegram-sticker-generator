@@ -41,15 +41,20 @@
                     <option value="PRESERVE_DIM">preserve</option>
                     <option value="SQUARE">square</option>
                     <option value="SQUEEZE">squeeze</option>
+                    <option value="SUBIMAGE">subimage</option>
                   </select>
                 </label>
-                <label id="image-input-label" for="image-input" class="base-button" >IMAGE GOES HERE</label>
+                <label id="image-input-label" for="image-input" class="base-button input-button" >IMAGE GOES HERE</label>
                 <input type="file" name="image" id="image-input" value="image.png" accept=".png">
               </form>
             </div>
           </div>
           <div class="col-6">
             <form class="form">
+              <label id="value-input-label" class="txt-input">
+                Value:
+                <input type="text" id="value-input" class="txt-field">
+              </label>
               <label class="txt-input">
                 Search by:
                 <select id="search-method-input">
@@ -57,12 +62,8 @@
                   <option value="PACK">pack</option>
                 </select>
               </label>
-              <label id="value-input-label" class="txt-input">
-                Value:
-                <input type="text" id="value-input" class="txt-field">
-              </label>
             </form>
-            <button id="submit-search-data" class="base-button" onclick="return false;">search</button>
+            <button id="submit-search-data" class="base-button input-button" onclick="return false;">SEARCH</button>
           </div>
         </div>
       <div class="col-12">

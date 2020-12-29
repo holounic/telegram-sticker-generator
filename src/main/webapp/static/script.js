@@ -69,6 +69,7 @@ function postImage(image, owner, pack, method) {
 
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
+            console.log(request.response)
             var blob = new Blob([new Uint8Array(request.response)], {type: "image/png"});
             processSticker(blob, true);
         }
@@ -85,6 +86,7 @@ function sendStickerRequest(method, value) {
 
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
+            console.log(request.response)
             var blob = new Blob([new Uint8Array(request.response)], {type: "image/png"});
             processSticker(blob);
         }

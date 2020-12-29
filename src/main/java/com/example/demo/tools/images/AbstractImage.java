@@ -49,10 +49,14 @@ public abstract class AbstractImage<T> {
 
     public T squeeze(int width, int height) {
         BufferedImage canvas = new BufferedImage(width, height, getColourType());
-        Graphics g = canvas.getGraphics();
+        Graphics2D g = canvas.createGraphics();
         g.drawImage(image, 0, 0, width, height, null);
         g.dispose();
         return convertOutput(canvas);
+    }
+
+    public T subImage(int width, int height) {
+        return convertOutput(image.getSubimage(0, 0, width, height));
     }
 
     public BufferedImage getImage() {

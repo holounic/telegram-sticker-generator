@@ -9,18 +9,22 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import java.util.logging.Logger;
 
 @RestController
 public class ImageController {
+
+    private static final Logger logger = Logger.getLogger(ImageController.class.getName());
 
     @Autowired
     StickerService service;
 
     @RequestMapping(value="/process", method = RequestMethod.POST)
     public ResponseEntity<byte[]> postImageToProcess(@RequestParam("file") MultipartFile file,
-                                                     @RequestParam("owner") String owner,
-                                                     @RequestParam("pack") String pack,
+                                                     @RequestParam(value = "owner") String owner,
+                                                     @RequestParam(value = "pack") String pack,
                                                      @RequestParam("method") ProcessingMethod method) {
+        logger.info(String.format("Using %s method to process image", method));
         byte[] cropped = StickerUtils.process(file, method);
         service.save(new Sticker(owner, pack, cropped));
 

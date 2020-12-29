@@ -9,6 +9,7 @@ public class StickerUtils {
             case SQUARE -> image.square();
             case SQUEEZE -> image.squeeze();
             case PRESERVE_DIM -> image.preserveDimension();
+            case SUBIMAGE -> image.subImage();
         };
     }
 }
