@@ -1,5 +1,6 @@
 package com.example.demo.tools.images;
 
+import com.example.demo.tools.images.dimsetters.Dim;
 import org.springframework.web.multipart.MultipartFile;
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;
@@ -30,32 +31,25 @@ public class StickerImage extends AbstractImage<byte[]> {
     }
 
     public byte[] squeeze() {
-        int originalHeight = image.getHeight();
-        int originalWidth = image.getWidth();
-        int canvasWidth, canvasHeight;
-
-        if (originalHeight > originalWidth) {
-            canvasHeight = DIM;
-            canvasWidth = Math.min(DIM, originalWidth);
-        } else {
-            canvasHeight = Math.min(DIM, originalHeight);
-            canvasWidth = DIM;
-        }
+        Dim canvasDim = new Dim(
+                image.getWidth(),
+                image.getHeight(),
+                (x, y) -> Math.min(DIM, Math.min(x, y)),
+                (x, y) -> DIM);
+        int canvasHeight = canvasDim.height;
+        int canvasWidth = canvasDim.width;
         logger.info(String.format("Squeeze, width = %d, height = %d", canvasWidth, canvasHeight));
         return squeeze(canvasWidth, canvasHeight);
     }
 
     public byte[] preserveDimension() {
-        int originalHeight = image.getHeight();
-        int originalWidth = image.getWidth();
-        int canvasWidth, canvasHeight;
-        if (originalHeight > originalWidth) {
-            canvasHeight = DIM;
-            canvasWidth = DIM * originalWidth / originalHeight;
-        } else {
-            canvasWidth = DIM;
-            canvasHeight = DIM * originalHeight / originalWidth;
-        }
+        Dim canvasDim = new Dim(
+                image.getWidth(),
+                image.getHeight(),
+                (x, y) -> DIM * Math.min(x, y) / Math.max(x, y),
+                (x, y) -> DIM);
+        int canvasWidth = canvasDim.width;
+        int canvasHeight = canvasDim.height;
         logger.info(String.format("Preserve dimensions, width = %d, height = %d", canvasWidth, canvasHeight));
         return squeeze(canvasWidth, canvasHeight);
     }
@@ -64,18 +58,15 @@ public class StickerImage extends AbstractImage<byte[]> {
         return squeeze(DIM, DIM);
     }
 
+
     public byte[] subImage() {
-        int originalHeight = image.getHeight();
-        int originalWidth = image.getWidth();
-        int canvasHeight, canvasWidth;
-        logger.info(String.format("Original size: w = %d, h = %d", originalWidth, originalHeight));
-        if (originalHeight > originalWidth) {
-            canvasHeight = DIM;
-            canvasWidth = Math.min(originalWidth, DIM);
-        } else {
-            canvasWidth = DIM;
-            canvasHeight = Math.min(originalHeight, DIM);
-        }
+        Dim canvasDim = new Dim(
+                image.getWidth(),
+                image.getHeight(),
+                (x, y) -> Math.min(x, Math.min(y, DIM)),
+                (x, y) -> DIM);
+        int canvasWidth = canvasDim.width;
+        int canvasHeight = canvasDim.height;
         logger.info(String.format("SubImage, width = %d, height = %d", canvasWidth, canvasHeight));
         return subImage(canvasWidth, canvasHeight);
     }
