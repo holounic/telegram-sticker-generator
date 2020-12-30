@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.entities.Sticker;
-import com.example.demo.services.StickerService;
+import com.example.demo.services.ServiceInterface;
 import com.example.demo.tools.gallery.GalleryResponseBuilder;
 import com.example.demo.tools.gallery.SearchingMethod;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class GalleryController {
     private static final Logger logger = Logger.getLogger(GalleryController.class.getName());
 
     @Autowired
-    StickerService service;
+    ServiceInterface service;
 
     @RequestMapping(value = "/method={method}/value={value}", method = RequestMethod.GET)
     public ResponseEntity<List<Long>> getIds(@PathVariable SearchingMethod method, @PathVariable String value) {

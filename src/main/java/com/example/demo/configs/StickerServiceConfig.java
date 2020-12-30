@@ -1,7 +1,7 @@
 package com.example.demo.configs;
 
+import com.example.demo.services.ServiceInterface;
 import com.example.demo.services.StickerService;
-import com.example.demo.services.StickerServiceImp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class StickerServiceConfig {
 
     @Bean
-    public StickerService stickerService() {
-        return new StickerServiceImp();
+    public ServiceInterface stickerService() {
+        return new StickerService();
     }
 }

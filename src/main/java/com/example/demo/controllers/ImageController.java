@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.entities.Sticker;
-import com.example.demo.services.StickerService;
+import com.example.demo.services.ServiceInterface;
 import com.example.demo.tools.images.ProcessingMethod;
 import com.example.demo.tools.images.StickerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class ImageController {
     private static final Logger logger = Logger.getLogger(ImageController.class.getName());
 
     @Autowired
-    StickerService service;
+    ServiceInterface service;
 
     @RequestMapping(value="/process", method = RequestMethod.POST)
     public ResponseEntity<byte[]> postImageToProcess(@RequestParam("file") MultipartFile file,
