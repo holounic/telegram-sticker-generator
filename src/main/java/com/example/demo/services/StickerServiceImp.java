@@ -6,6 +6,7 @@ import com.example.demo.tools.gallery.SearchingMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 public class StickerServiceImp implements StickerService {
@@ -21,6 +22,11 @@ public class StickerServiceImp implements StickerService {
         logger.info(String.format("Saved sticker of size %d, made by %s, pack: %s",
                 sticker.getImage().length, sticker.getOwner(), sticker.getId()));
         return repository.save(sticker);
+    }
+
+    @Override
+    public Optional<Sticker> findById(long id) {
+        return repository.findById(id);
     }
 
     @Override
@@ -40,4 +46,15 @@ public class StickerServiceImp implements StickerService {
             case PACK -> findByPack(value);
         };
     }
+
+    @Override
+    public List<String> findAllOwners() {
+        return repository.findAllOwners();
+    }
+
+    @Override
+    public List<String> findAllPacks() {
+        return repository.findAllPacks();
+    }
+
 }

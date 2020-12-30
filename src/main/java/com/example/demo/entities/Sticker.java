@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,7 @@ public class Sticker {
 
     @Lob
     @Column(name = "image", length = Integer.MAX_VALUE)
+    @JsonIgnore
     private byte[] image;
 
     public Sticker(String owner, String pack, byte[] sticker) {

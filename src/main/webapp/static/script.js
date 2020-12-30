@@ -22,7 +22,7 @@ window.onload = function () {
     SUBMIT_BUTTON.onclick = function () {
         let method = SEARCH_METHOD_INPUT.value;
         let value = VALUE_INPUT.value;
-        sendStickerRequest(method, value);
+        getStickersBy(method, value);
     }
 
     IMAGE_INPUT.onchange = function () {
@@ -74,11 +74,10 @@ function postImage(image, owner, pack, method) {
             processSticker(blob, true);
         }
     }
-
 }
 
-function sendStickerRequest(method, value) {
-    const path = "/gallery/method=" + method + "/value=" + value;
+function getStickerById(id) {
+    const path = "/gallery/sticker?id=" + id;
     const request = new XMLHttpRequest();
     request.open("GET", path, true);
     request.send();
@@ -91,5 +90,25 @@ function sendStickerRequest(method, value) {
             processSticker(blob);
         }
     }
+}
 
+function getStickersBy(method, value) {
+    const path = "/gallery/method=" + method + "/value=" + value;
+    fetch(path)
+        .then(response => response.json())
+        .then(json => console.log(json));
+}
+
+function getAllPacks() {
+    const path = "/gallery/packs";
+    fetch(path)
+        .then(response => response.json())
+        .then(json => console.log(json));
+}
+
+function getAllOwners() {
+    const path = "/gallery/owmers";
+    fetch(path)
+        .then(response => response.json())
+        .then(response => console.log(response));
 }

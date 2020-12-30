@@ -21,8 +21,8 @@ public class ImageController {
 
     @RequestMapping(value="/process", method = RequestMethod.POST)
     public ResponseEntity<byte[]> postImageToProcess(@RequestParam("file") MultipartFile file,
-                                                     @RequestParam(value = "owner") String owner,
-                                                     @RequestParam(value = "pack") String pack,
+                                                     @RequestParam("owner") String owner,
+                                                     @RequestParam("pack") String pack,
                                                      @RequestParam("method") ProcessingMethod method) {
         logger.info(String.format("Using %s method to process image", method));
         byte[] cropped = StickerUtils.process(file, method);
