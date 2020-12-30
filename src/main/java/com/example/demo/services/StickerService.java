@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.logging.Logger;
 
 public class StickerService implements ServiceInterface {
 
     private static final Logger logger = Logger.getLogger(StickerService.class.getName());
+    private static final Random random = new Random(12345);
 
     @Autowired
     private StickerRepository repository;
@@ -27,6 +29,26 @@ public class StickerService implements ServiceInterface {
     @Override
     public Optional<Sticker> findById(long id) {
         return repository.findById(id);
+    }
+
+    @Override
+    public long findNewestId() {
+        return repository.findMaxId();
+    }
+
+    @Override
+    public long findElementsNumber() {
+        return repository.getElementsNumber();
+    }
+
+    @Override
+    public long findPacksNumber() {
+        return repository.getPacksNumber();
+    }
+
+    @Override
+    public long findOwnersNumber() {
+        return repository.getOwnersNumber();
     }
 
     @Override

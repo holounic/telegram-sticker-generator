@@ -15,6 +15,18 @@ public interface StickerRepository extends CrudRepository<Sticker, Long> {
     @Query(value = "SELECT DISTINCT pack FROM sticker", nativeQuery = true)
     List<String> findAllPacks();
 
+    @Query(value = "SELECT MAX(ID) FROM sticker", nativeQuery = true)
+    long findMaxId();
+
+    @Query(value = "SELECT COUNT(*) FROM sticker", nativeQuery = true)
+    long getElementsNumber();
+
+    @Query(value = "SELECT COUNT(DISTINCT pack) FROM sticker", nativeQuery = true)
+    long getPacksNumber();
+
+    @Query(value = "SELECT COUNT(DISTINCT owner) FROM sticker", nativeQuery = true)
+    long getOwnersNumber();
+
     List<Sticker> findByPack(String pack);
     List<Sticker> findByOwner(String owner);
     Optional<Sticker> findById(long id);

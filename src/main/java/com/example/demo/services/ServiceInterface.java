@@ -18,4 +18,9 @@ public interface ServiceInterface {
     List<String> findAllOwners();
     List<String> findAllPacks();
 
+    long findNewestId();
+    long findElementsNumber();
+    long findPacksNumber();
+    long findOwnersNumber();
+
 }

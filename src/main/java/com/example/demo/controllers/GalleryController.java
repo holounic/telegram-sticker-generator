@@ -34,7 +34,7 @@ public class GalleryController {
                 .body(ids);
     }
 
-    @RequestMapping(value = "/sticker?id={id}/image", method = RequestMethod.GET)
+    @RequestMapping(value = "/sticker/id={id}/image", method = RequestMethod.GET)
     public ResponseEntity<byte[]> getStickerImage(@PathVariable long id) {
         Optional<Sticker> sticker = service.findById(id);
         logger.info(String.format("Found %s sticker with id %d", sticker.isPresent() ? "" : "no", id));
@@ -47,7 +47,7 @@ public class GalleryController {
                 .body(sticker.get().getImage());
     }
 
-    @RequestMapping(value = "/sticker?id={id}/data", method = RequestMethod.GET)
+    @RequestMapping(value = "/sticker/id={id}/data", method = RequestMethod.GET)
     public ResponseEntity<Sticker> getStickerData(@PathVariable long id) {
         Optional<Sticker> sticker = service.findById(id);
         if (sticker.isEmpty()) {
@@ -75,6 +75,38 @@ public class GalleryController {
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(owners);
+    }
+
+    @RequestMapping(value = "/packs/number", method = RequestMethod.GET)
+    public ResponseEntity<Long> getPacksNumber() {
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(service.findPacksNumber());
+    }
+
+    @RequestMapping(value = "/stickers/number", method = RequestMethod.GET)
+    public ResponseEntity<Long> getStickersNumber() {
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(service.findElementsNumber());
+    }
+
+    @RequestMapping(value = "/owners/number", method = RequestMethod.GET)
+    public ResponseEntity<Long> getOwnersNumber() {
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(service.findOwnersNumber());
+    }
+
+    @RequestMapping(value = "/random", method = RequestMethod.GET)
+    public ResponseEntity<Long> getRandomId() {
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(service.findNewestId());
     }
 
 }

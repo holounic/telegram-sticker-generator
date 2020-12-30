@@ -127,11 +127,31 @@ span:hover {
     color: #f7f7f7 !important;
 }
 
+.tabcontent {
+    display: none;
+}
+
+.tab-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    background-color: #f7f7f7;
+    border: none;
+}
+
+.tab-button:hover {
+    color: #f7f7f7;
+    background-color: black;
+}
+
+.tab {
+    padding-bottom: 30px;
+}
+
 #image-input {
     visibility: hidden;
 }
 
-#image-output {
+img {
     max-height: min(20vh, 20vw);
     max-width: min(20vh, 20vw);
 }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SOMETHING</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Raleway&family=Roboto:wght@300&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+<div class="row">
+    <div id="area" class="col-12">
+        <span>S</span>
+        <span>O</span>
+        <span>M</span>
+        <span>E</span>
+        <span>T</span>
+        <span>H</span>
+        <span>I</span>
+        <span>N</span>
+        <span>G</span>
+        <span>!</span>
+        <p class="description">TURN YOUR IMAGE INTO TELEGRAM STICKER</p>
+
+        <div class="tab">
+            <button class="tab-button" id="new-sticker-switcher">NEW STICKER</button>
+            <button class="tab-button" id="find-sticker-switcher">FIND STICKER</button>
+            <button class="tab-button" id="random-sticker-switcher">RANDOM STICKER</button>
+            <button class="tab-button" id="info-switcher">INFO</button>
+        </div>
+
+        <div id="new-sticker-tab" class="tabcontent">
+          <div class="row">
+            <div class="col-6">
+              <div id="elements-area">
+                <form class="form">
+                  <label id="owner-input-label" class="txt-input">
+                    Owner id:
+                    <input type="text" id="owner-input" value="@me" class="txt-field">
+                  </label>
+                  <label id="pack-input-label" for="pack-input" class="txt-input">
+                    Pack name:
+                    <input type="text" id="pack-input" value="MyPack" class="txt-field">
+                  </label>
+                  <label class="txt-input">
+                    Method:
+                    <select id="process-method-input">
+                      <option value="PRESERVE_DIM">preserve</option>
+                      <option value="SQUARE">square</option>
+                      <option value="SQUEEZE">squeeze</option>
+                      <option value="SUBIMAGE">subimage</option>
+                    </select>
+                  </label>
+                  <label id="image-input-label" for="image-input" class="base-button input-button">IMAGE GOES
+                    HERE</label>
+                  <input type="file" name="image" id="image-input" value="image.png" accept=".png">
+                </form>
+              </div>
+            </div>
+            <div class="col-6">
+              <div id="output-area">
+                <img id="image-output"/>
+                <br>
+                <a id="download-image-button" class="link"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="find-sticker-tab" class="tabcontent">
+          <div class="row">
+            <div class="col-6">
+              <form class="form">
+                <label id="value-input-label" class="txt-input">
+                  Value:
+                  <input type="text" id="value-input" class="txt-field">
+                </label>
+                <label class="txt-input">
+                  Search by:
+                  <select id="search-method-input">
+                    <option value="OWNER">owner</option>
+                    <option value="PACK">pack</option>
+                  </select>
+                </label>
+              </form>
+              <button id="submit-search-data" class="base-button input-button" onclick="return false;">SEARCH
+              </button>
+            </div>
+            <div class="col-6">
+              <div id="search-output-area">
+                <img id="search-image-output"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="random-sticker-tab" class="tabcontent">
+          <div class="row">
+            <div class="col-6">
+              <p id="random-sticker-data"></p>
+            </div>
+            <div class="col-6">
+              <img id="random-image-output"/>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="info-tab" class="tabcontent">
+            <p id="number-of-stickers"></p>
+            <br>
+            <p id="number-of-packs"></p>
+            <br>
+            <p id="number-of-users"></p>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>
