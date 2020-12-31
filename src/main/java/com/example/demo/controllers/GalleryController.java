@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.logging.Logger;
 
 @RestController
@@ -103,10 +104,11 @@ public class GalleryController {
 
     @RequestMapping(value = "/random", method = RequestMethod.GET)
     public ResponseEntity<Long> getRandomId() {
+        long newestId = service.findNewestId();
         return ResponseEntity
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(service.findNewestId());
+                .body(newestId - new Random().nextInt((int) (newestId - 1)));
     }
 
 }
