@@ -1,4 +1,4 @@
-package com.example.demo.tool.images;
+package com.example.demo.tool.image;
 
 public enum ImageType {
     JPG,

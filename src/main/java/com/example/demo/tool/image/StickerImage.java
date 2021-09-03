@@ -1,6 +1,6 @@
-package com.example.demo.tool.images;
+package com.example.demo.tool.image;
 
-import com.example.demo.tool.images.dimsetters.Dim;
+import com.example.demo.tool.image.dimsetters.Dim;
 import org.springframework.web.multipart.MultipartFile;
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;

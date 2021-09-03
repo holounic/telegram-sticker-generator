@@ -1,4 +1,4 @@
-package com.example.demo.tool.images.dimsetters;
+package com.example.demo.tool.image.dimsetters;
 
 import java.util.function.IntBinaryOperator;
 
