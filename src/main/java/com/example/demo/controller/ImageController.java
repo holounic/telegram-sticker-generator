@@ -1,9 +1,9 @@
-package com.example.demo.controllers;
+package com.example.demo.controller;
 
-import com.example.demo.entities.Sticker;
-import com.example.demo.services.ServiceInterface;
-import com.example.demo.tools.images.ProcessingMethod;
-import com.example.demo.tools.images.StickerUtils;
+import com.example.demo.entity.Sticker;
+import com.example.demo.service.ServiceInterface;
+import com.example.demo.tool.images.ProcessingMethod;
+import com.example.demo.tool.images.StickerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

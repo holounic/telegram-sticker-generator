@@ -1,4 +1,4 @@
-package com.example.demo.tools.gallery;
+package com.example.demo.tool.gallery;
 
 public enum SearchingMethod {
     OWNER,

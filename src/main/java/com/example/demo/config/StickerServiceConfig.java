@@ -1,7 +1,7 @@
-package com.example.demo.configs;
+package com.example.demo.config;
 
-import com.example.demo.services.ServiceInterface;
-import com.example.demo.services.StickerService;
+import com.example.demo.service.ServiceInterface;
+import com.example.demo.service.StickerService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

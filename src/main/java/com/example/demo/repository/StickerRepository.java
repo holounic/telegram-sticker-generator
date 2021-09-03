@@ -1,6 +1,6 @@
-package com.example.demo.repositories;
+package com.example.demo.repository;
 
-import com.example.demo.entities.Sticker;
+import com.example.demo.entity.Sticker;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import javax.transaction.Transactional;

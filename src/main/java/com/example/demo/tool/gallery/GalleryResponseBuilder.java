@@ -1,6 +1,6 @@
-package com.example.demo.tools.gallery;
+package com.example.demo.tool.gallery;
 
-import com.example.demo.entities.Sticker;
+import com.example.demo.entity.Sticker;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;

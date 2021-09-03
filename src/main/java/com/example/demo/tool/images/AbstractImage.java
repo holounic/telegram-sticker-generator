@@ -1,4 +1,4 @@
-package com.example.demo.tools.images;
+package com.example.demo.tool.images;
 
 import org.springframework.web.multipart.MultipartFile;
 
